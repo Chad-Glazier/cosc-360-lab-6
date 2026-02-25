@@ -10,4 +10,6 @@ export type User = {
 	 * a path to some file in `public/` or a URL.
 	 */
 	profilePicture: string
+	username: string
+	id: string
 }

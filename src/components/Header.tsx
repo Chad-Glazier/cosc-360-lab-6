@@ -2,6 +2,7 @@ import { useState } from "react"
 import type { User } from "../types"
 import "./Header.css"
 import guestUser from "../util/guestUser"
+import { Link } from "react-router-dom"
 
 type HeaderProps = {
 	pageTitle: string
@@ -13,7 +14,7 @@ type HeaderProps = {
 };
 
 function Header({ pageTitle, user }: HeaderProps) {
-	const { profilePicture } = user ?? guestUser()
+	const { profilePicture, username } = user ?? guestUser()
 
 	const [ showProfileMenu, setShowProfileMenu ] = useState(false)
 
@@ -21,14 +22,36 @@ function Header({ pageTitle, user }: HeaderProps) {
 		<header id="header">
 			<div className="headerInner">
 				<h1>{pageTitle}</h1>
-				<img 
-					className="headerProfileIcon"
-					src={profilePicture} 
-					alt="Profile picture." 
-					onClick={() => {
-
-					}}
-					/>				
+				<div className="headerProfileMenuContainer">
+					<img 
+						className="headerProfileIcon"
+						src={profilePicture} 
+						alt="Profile picture." 
+						onClick={() => setShowProfileMenu(prev => !prev)}
+					/>
+					{showProfileMenu && <menu
+						className="headerProfileMenu"
+					>
+						{user ?
+							<>	
+								<h2>{username}</h2>
+								<Link to="/account">Manage account</Link>
+								<button>Log out</button>						
+							</>
+							:
+							<>
+								<p>
+									You aren't currently logged in. 
+								</p>
+								<p>
+									<Link to="/login">log in</Link>
+									&nbsp;or&nbsp; 
+									<Link to="/register">create an account.</Link>
+								</p>
+							</>
+						}
+					</menu>}
+				</div>
 			</div>
 		</header>
 	)

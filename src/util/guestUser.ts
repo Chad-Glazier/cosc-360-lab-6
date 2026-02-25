@@ -1,4 +1,4 @@
-import type { User } from "../types";
+import type { User } from "../types"
 
 /**
  * Creates a default instance of {@link User}.
@@ -6,7 +6,9 @@ import type { User } from "../types";
 function guestUser(): User {
 	return {
 		profilePicture: "public/default_profile_picture.jpg",
-	};
+		username: "Guest",
+		id: ""
+	}
 }
 
-export default guestUser;
+export default guestUser

@@ -2,10 +2,12 @@
 	position: sticky;
 
 	width: 100%;
-	padding: 2rem;
+	padding: 2rem;	
 }
 
 .headerInner {
+	position: relative;
+
 	max-width: 1200px;
 	margin: 0 auto;
 
@@ -21,7 +23,7 @@
 	height: 85px;
 	border-radius: 100%;
 
-	box-shadow: 0px 0px 2px rgba(1, 1, 1, 1);
+	box-shadow: 0px 0px 0px rgba(1, 1, 1, 1);
 	transition: all 200ms;
 }
 
@@ -29,4 +31,16 @@
 	cursor: pointer;
 
 	box-shadow: 0px 0px 8px rgba(1, 1, 1, 1);
+}
+
+.headerProfileMenu {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	width: min(100%, 250px);
+	
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
