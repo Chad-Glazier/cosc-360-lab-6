@@ -1,4 +1,7 @@
+import type { PropsWithChildren } from "react"
 import "./Button.css"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 type ButtonProps = {
 	/**
@@ -14,11 +17,6 @@ type ButtonProps = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 
 	/**
-	 * The text that will be displayed in the button.
-	 */
-	text: string
-
-	/**
 	 * Optionally, this can be used to help determine the style of the button. 
 	 * - "normal" is the default style.
 	 * - "subtle" is a more subtle style, suitable for buttons that are less
@@ -27,9 +25,20 @@ type ButtonProps = {
 	 * important actions such as deletions.
 	 */
 	style?: "normal" | "subtle" | "important"
+
+	/**
+	 * You can specify an icon (as imported from `@fortawesome/*`) to use for
+	 * this button. It will be prefixed to the text.
+	 */
+	icon?: IconDefinition
+
+	/**
+	 * Sets the text for the button.
+	 */
+	text?: string
 }
 
-function Button({ className, onClick, text, style }: ButtonProps) {
+function Button({ className, onClick, style, icon, text }: ButtonProps) {
 	style ??= "normal"
 
 	return (
@@ -42,7 +51,15 @@ function Button({ className, onClick, text, style }: ButtonProps) {
 			onClick={e => {
 				if (onClick) onClick(e)
 			}}
-		>{text}</button>
+		>
+			{icon ?
+				<>
+					<FontAwesomeIcon icon={icon} /> {text}
+				</>
+				:
+				text
+			}
+		</button>
 	)
 }
 

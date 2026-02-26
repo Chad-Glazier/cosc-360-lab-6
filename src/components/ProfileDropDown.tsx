@@ -5,6 +5,9 @@ import type { User } from "../types"
 import Modal from "./Modal"
 import guestUser from "../util/guestUser"
 import { useRef, useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRightFromBracket, faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
+
 
 type ProfileDropDownProps = {
 	/**
@@ -56,15 +59,15 @@ function ProfileDropDown({ user }: ProfileDropDownProps) {
 			<>	
 				<h2>{username}</h2>
 				<Button
-					text="Manage Account"
 					onClick={() => {
 						navigate("/account")
 					}}
 					className="profileDropDownButton"
 					style="normal"
+					icon={faCircleUser}
+					text={"My Account"}
 				/>
 				<Button 
-					text="Log Out"
 					onClick={() => {
 						// "logging out" can't be implemented until
 						// the authentication system is figured out
@@ -76,7 +79,9 @@ function ProfileDropDown({ user }: ProfileDropDownProps) {
 					}}
 					className="profileDropDownButton"
 					style="subtle"
-				/>						
+					icon={faRightFromBracket}
+					text="Log Out"
+				/>					
 			</>
 			:
 			<>

@@ -1,10 +1,5 @@
-import { useRef, useState } from "react"
 import type { User } from "../types"
 import "./Header.css"
-import guestUser from "../util/guestUser"
-import { Link, useNavigate } from "react-router-dom"
-import Modal from "./Modal"
-import Button from "./Button"
 import ProfileDropDown from "./ProfileDropDown"
 
 type HeaderProps = {
