@@ -12,11 +12,17 @@
 #header h1 {
 	color: #FFF;
 	font-size: 2.5rem;
-	max-width: 50%;
+	/* 250px is roughly the width of the profile menu */
+	max-width: calc(100% - 250px);
+}
+
+@media screen and (orientation: portrait) {
+	#header h1 {
+		max-width: calc(100% - 80px);
+	}
 }
 
 .headerInner {
-	/* max-width: 1200px; */
 	margin: 0 auto;
 
 	display: flex;

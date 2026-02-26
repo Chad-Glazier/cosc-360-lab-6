@@ -14,6 +14,17 @@ type ProfileDropDownProps = {
 	user?: User
 }
 
+
+/**
+ * This profile drop-down menu displays a user's icon, and when the icon is
+ * clicked, provides a drop-down menu offering actions related to the user
+ * profile. It is meant to be used for the currently logged-in user, not to
+ * display information about a public user profile. 
+ * 
+ * At the time of writing, this component is styled specifically for use in
+ * the `Header` element. You might run into issues if you try to use it
+ * elsewhere.
+ */
 function ProfileDropDown({ user }: ProfileDropDownProps) {
 	const { profilePicture, username } = user ?? guestUser()
 
