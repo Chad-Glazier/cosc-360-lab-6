@@ -5,8 +5,7 @@ import type { User } from "../types"
 import Modal from "./Modal"
 import guestUser from "../util/guestUser"
 import { useRef, useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRightFromBracket, faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
+import { faCircleUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 
 
 type ProfileDropDownProps = {

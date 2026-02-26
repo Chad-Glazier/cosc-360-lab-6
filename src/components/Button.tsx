@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from "react"
 import "./Button.css"
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
