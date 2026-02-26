@@ -2,10 +2,11 @@ import { useRef, useState } from "react"
 import type { User } from "../types"
 import "./Header.css"
 import guestUser from "../util/guestUser"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Modal from "./Modal"
+import Button from "./Button"
 
-export type HeaderProps = {
+type HeaderProps = {
 	pageTitle: string
 
 	/**
@@ -21,6 +22,8 @@ function Header({ pageTitle, user }: HeaderProps) {
 	const [showProfileMenu, setShowProfileMenu] = useState(false)
 
 	const profileIcon = useRef<HTMLImageElement | null>(null)
+
+	const navigate = useNavigate()
 
 	return (
 		<header id="header">
@@ -45,8 +48,28 @@ function Header({ pageTitle, user }: HeaderProps) {
 				{user ?
 					<>	
 						<h2>{username}</h2>
-						<Link to="/account">Manage account</Link>
-						<button>Log out</button>						
+						<Button
+							text="Manage Account"
+							onClick={() => {
+								navigate("/account")
+							}}
+							className="profileMenuButton"
+							style="normal"
+						/>
+						<Button 
+							text="Log Out"
+							onClick={() => {
+								// "logging out" can't be implemented until
+								// the authentication system is figured out
+								// (on the backend).
+								//
+								// This is a placeholder.
+
+								navigate(0)
+							}}
+							className="profileMenuButton"
+							style="subtle"
+						/>						
 					</>
 					:
 					<>

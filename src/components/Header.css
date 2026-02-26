@@ -5,11 +5,13 @@
 	padding: 2rem;	
 
 	background-color: #66D575;
+
+	--profile-icon-size: 65px;
 }
 
 #header h1 {
 	color: #FFF;
-
+	font-size: 2.5rem;
 }
 
 .headerInner {
@@ -24,8 +26,8 @@
 }
 
 .headerProfileIcon {
-	width: 85px;
-	height: 85px;
+	width: var(--profile-icon-size);
+	height: var(--profile-icon-size);
 	border-radius: 100%;
 
 	box-shadow: 0px 0px 0px #000;
@@ -53,5 +55,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1rem;
+	gap: 0.5rem;
+}
+
+.profileMenuButton {
+	width: 100%;
+}
+
+.headerProfileMenu h2 {
+	margin-bottom: 1rem;
+	font-weight: normal;
 }

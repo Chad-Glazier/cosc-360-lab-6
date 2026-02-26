@@ -5,9 +5,9 @@ import type { User } from "../types"
  */
 function guestUser(): User {
 	return {
-		profilePicture: "/default_profile_picture.jpg",
+		profilePicture: "/default_user_profile_picture.png",
 		username: "Guest",
-		id: ""
+		id: "guest"
 	}
 }
 
