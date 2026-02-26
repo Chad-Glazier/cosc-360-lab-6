@@ -2,3 +2,6 @@
 
 
 
+# To-Do
+
+- Make the current user's information part of a "global" context.
