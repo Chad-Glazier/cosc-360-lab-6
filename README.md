@@ -1,13 +1,26 @@
 # COSC 360 Lab 6
 
+## Setup
 
+Once you've cloned the project, run:
 
-# To-Do
+```shell
+npm install
+```
+
+This will install the dependencies for the project (you should see a `node_modules` folder appear). Next, you should be able to run the project:
+
+```shell
+npm run dev
+```
+
+This will start a development server and give you a link to view the webpage in your browser.
+
+## To-Do
 
 - Make the current user's information part of a "global" context.
 
-
-## Notes
+## Additional Notes
 
 ### Including Icons
 
