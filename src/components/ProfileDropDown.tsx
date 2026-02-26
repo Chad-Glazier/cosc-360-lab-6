@@ -1,0 +1,86 @@
+import { Link, useNavigate } from "react-router-dom"
+import "./ProfileDropDown.css"
+import Button from "./Button"
+import type { User } from "../types"
+import Modal from "./Modal"
+import guestUser from "../util/guestUser"
+import { useRef, useState } from "react"
+
+type ProfileDropDownProps = {
+	/**
+	 * The currently logged-in user. If one is not provided, then it is assumed
+	 * that the user is a guest.
+	 */
+	user?: User
+}
+
+function ProfileDropDown({ user }: ProfileDropDownProps) {
+	const { profilePicture, username } = user ?? guestUser()
+
+	const navigate = useNavigate()
+
+	const [showProfileMenu, setShowProfileMenu] = useState(false)
+	
+	const profileIcon = useRef<HTMLImageElement | null>(null)
+
+	return (
+	<div className="profileDropDownContainer">
+		<img 
+			className="profileDropDownIcon"
+			src={profilePicture} 
+			alt="Profile picture." 
+			onClick={() => setShowProfileMenu(prev => !prev)}
+			ref={profileIcon}
+		/>
+		<Modal
+			className="profileDropDownMenu"
+			show={showProfileMenu}
+			onClickAway={e => {
+				if (e.target == profileIcon.current) return
+
+				setShowProfileMenu(false)
+			}}
+		>
+		{user ?
+			<>	
+				<h2>{username}</h2>
+				<Button
+					text="Manage Account"
+					onClick={() => {
+						navigate("/account")
+					}}
+					className="profileDropDownButton"
+					style="normal"
+				/>
+				<Button 
+					text="Log Out"
+					onClick={() => {
+						// "logging out" can't be implemented until
+						// the authentication system is figured out
+						// (on the backend).
+						//
+						// This is a placeholder.
+
+						navigate(0)
+					}}
+					className="profileDropDownButton"
+					style="subtle"
+				/>						
+			</>
+			:
+			<>
+				<p>
+					You aren't currently logged in. 
+				</p>
+				<p>
+					<Link to="/login">Log in</Link>
+					&nbsp;or&nbsp; 
+					<Link to="/register">create an account.</Link>
+				</p>
+			</>
+		}
+		</Modal>
+	</div>)
+}
+
+export default ProfileDropDown

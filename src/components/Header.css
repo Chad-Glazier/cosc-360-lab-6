@@ -12,6 +12,7 @@
 #header h1 {
 	color: #FFF;
 	font-size: 2.5rem;
+	max-width: 50%;
 }
 
 .headerInner {
@@ -23,46 +24,4 @@
 
 	justify-content: space-between;
 	align-items: center;
-}
-
-.headerProfileIcon {
-	width: var(--profile-icon-size);
-	height: var(--profile-icon-size);
-	border-radius: 100%;
-
-	box-shadow: 0px 0px 0px #000;
-	transition: all 200ms;
-}
-
-.headerProfileIcon:hover {
-	cursor: pointer;
-
-	box-shadow: 0px 0px 8px #000;
-}
-
-.headerProfileMenu {
-	position: absolute;
-	top: 100%;
-	right: 0;
-
-	width: min(90%, 250px);
-
-	background-color: #fff;
-	border: 1px solid #aaa;
-	border-radius: 5px;
-	padding: 1rem;
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.profileMenuButton {
-	width: 100%;
-}
-
-.headerProfileMenu h2 {
-	margin-bottom: 1rem;
-	font-weight: normal;
 }

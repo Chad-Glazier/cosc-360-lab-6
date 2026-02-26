@@ -1,0 +1,73 @@
+.profileDropDownContainer {
+	--icon-size: 60px;
+
+	position: absolute;
+	right: 1rem;
+	top: calc(50% - 0.5 * var(--icon-size));
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+
+	min-width: min(90%, 250px);
+}
+
+.profileDropDownIcon {
+	width: var(--icon-size);
+	height: var(--icon-size);
+	border-radius: 100%;
+
+	box-shadow: 0px 0px 0px #fff;
+	transition: all 200ms;
+}
+
+.profileDropDownIcon:hover {
+	cursor: pointer;
+
+	box-shadow: 0px 0px 8px #fff;
+}
+
+.profileDropDownMenu {
+	width: 100%;
+
+	background-color: #fff;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	padding: 1rem;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.profileDropDownButton {
+	width: 100%;
+}
+
+.profileDropDownMenu h2 {
+	margin-bottom: 1rem;
+	font-weight: normal;
+}
+
+@media screen and (orientation: portrait) {
+	.profileDropDownContainer {
+		position: static;
+	}
+
+	.profileDropDownIcon {
+		position: absolute;
+		right: 1rem;
+		top: calc(50% - 0.5 * var(--icon-size));
+	}
+
+	.profileDropDownMenu {
+		width: 100vw;
+		position: absolute;
+		top: 100%;
+		left: 0;
+
+		border-radius: 0px;
+	}
+}
