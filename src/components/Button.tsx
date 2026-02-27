@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 type ButtonProps = {
 	/**
-	 * The `Button` component has built-in styles, but if you want to set 
+	 * The `Button` component has built-in styles, but if you want to include 
 	 * additional ones you can set this property, which will be passed down
 	 * to the underlying `button` element.
 	 */
