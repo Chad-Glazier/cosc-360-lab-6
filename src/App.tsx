@@ -10,7 +10,7 @@ export type PagePath = "/" | "/login" | "/register" | "/account"
 export const pageTitle: Record<PagePath, string> = {
 	"/": "Home",
 	"/login": "Log In",
-	"/register": "Register",
+	"/register": "Create an Account",
 	"/account": "My Account"
 }
 

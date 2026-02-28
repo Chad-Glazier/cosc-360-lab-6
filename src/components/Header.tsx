@@ -12,9 +12,23 @@ type HeaderProps = {
 	 * that the user is a guest.
 	 */
 	user?: User
+
+	/**
+	 * For some pages (like the login and registration pages), including the
+	 * user profile in the header wouldn't make sense. Setting this property
+	 * will hide it.
+	 */
+	hideProfileMenu?: boolean
+
+	/**
+	 * Set this to omit the page title from the header.
+	 */
+	hidePageTitle?: boolean
 }
 
-function Header({ currentPage, user }: HeaderProps) {
+function Header({ 
+	currentPage, user, hideProfileMenu, hidePageTitle 
+}: HeaderProps) {
 	return (
 		<>
 			<Nav
@@ -22,8 +36,12 @@ function Header({ currentPage, user }: HeaderProps) {
 			/>
 			<header id="header">
 				<div className="headerInner">
-					<h1>{pageTitle[currentPage]}</h1>
-					<ProfileDropDown user={user} />
+					<h1>{hidePageTitle ?
+						<>&nbsp;</>
+						:
+						pageTitle[currentPage]
+					}</h1>
+					{!hideProfileMenu && <ProfileDropDown user={user} />}
 				</div>
 			</header>
 		</>

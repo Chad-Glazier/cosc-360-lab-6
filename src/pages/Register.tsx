@@ -7,6 +7,7 @@ import Form from "../components/Form"
 import { useState } from "react"
 import TextInput from "../components/TextInput"
 import validEmail from "../util/validEmail"
+import Header from "../components/Header"
 
 function Register() {
 	const [emailErr, setEmailErr] = useState("")
@@ -14,7 +15,12 @@ function Register() {
 	const [passwordErr, setPasswordErr] = useState("")
 	const [confirmPasswordErr, setConfirmPasswordErr] = useState("")
 
-	return (
+	return (<>
+		<Header
+			currentPage="/register"
+			hideProfileMenu
+			hidePageTitle
+		/>
 		<main className="registerContainer">
 			<Form
 				method="POST"
@@ -62,7 +68,7 @@ function Register() {
 				}}
 			>
 				<h1>Create an Account</h1>
-				
+			
 				<TextInput
 					name="email"
 					error={emailErr}
@@ -94,7 +100,7 @@ function Register() {
 				</p>
 			</Form>
 		</main>
-	)
+	</>)
 }
 
 export default Register

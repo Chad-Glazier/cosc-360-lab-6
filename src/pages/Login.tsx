@@ -7,12 +7,18 @@ import { faArrowRightToBracket, faEnvelope, faLock } from "@fortawesome/free-sol
 import { useState } from "react"
 import validEmail from "../util/validEmail"
 import TextInput from "../components/TextInput"
+import Header from "../components/Header"
 
 function Login() {
 	const [emailErr, setEmailErr] = useState("")
 	const [passwordErr, setPasswordErr] = useState("")
 
-	return (
+	return (<>
+		<Header 
+			currentPage="/login" 
+			hideProfileMenu 
+			hidePageTitle
+		/>
 		<main className="loginContainer">
 			<Form
 				method="POST"
@@ -46,6 +52,7 @@ function Login() {
 				}}
 			>
 				<h1>Log In</h1>
+
 				<TextInput
 					name="email"
 					error={emailErr}
@@ -68,7 +75,7 @@ function Login() {
 				</p>
 			</Form>
 		</main>
-	)
+	</>)
 }
 
 export default Login
