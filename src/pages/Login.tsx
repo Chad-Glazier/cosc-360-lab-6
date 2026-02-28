@@ -62,6 +62,7 @@ function Login() {
 					name="password"
 					error={passwordErr}
 					icon={faLock}
+					type="password"
 				/>
 
 				<Button

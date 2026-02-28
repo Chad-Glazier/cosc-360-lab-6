@@ -84,11 +84,13 @@ function Register() {
 					name="password"
 					error={passwordErr}
 					icon={faLock}
+					type="password"
 				/>
 				<TextInput 
 					name="confirmPassword"
 					label="Confirm Password"
 					error={confirmPasswordErr}
+					type="password"
 				/>
 
 				<Button
