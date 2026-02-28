@@ -39,7 +39,10 @@ function ProfileDropDown({ user }: ProfileDropDownProps) {
 	return (
 	<div className="profileDropDownContainer">
 		<img 
-			className="profileDropDownIcon"
+			className={
+				"profileDropDownIcon" + (showProfileMenu 
+					? " profileDropDownIconActive" : "")
+			}
 			src={profilePicture} 
 			alt="Profile picture." 
 			onClick={() => setShowProfileMenu(prev => !prev)}
