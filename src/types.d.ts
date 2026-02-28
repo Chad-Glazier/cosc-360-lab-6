@@ -13,3 +13,8 @@ export type User = {
 	username: string
 	id: string
 }
+
+/**
+ * Represents an HTTP verb.
+ */
+export type HTTPMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE"

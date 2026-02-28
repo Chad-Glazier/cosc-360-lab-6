@@ -22,6 +22,24 @@ This will start a development server and give you a link to view the webpage in 
 
 ## Additional Notes
 
+### Environment Variables
+
+Vite, the bundler we are using, will automatically load environment variables that are prefixed with `VITE_` and are defined in files named `.env` and `.env.local`. The variables are accessible with `import.meta.env.VITE_...`.
+
+E.g., if you put this line in `.env` or `.env.local`:
+
+```conf
+VITE_DOMAIN_NAME="www.website.com"
+```
+
+then in your JavaScript you can access the variable like so:
+
+```ts
+console.log(import.meta.env.VITE_DOMAIN_NAME) // "www.website.com"
+```
+
+You can set environment variables in either `.env` or `.env.local`. The difference between them is that `.env` **will be included in the public repo**, so you should not put any sensitive data (e.g., API keys) inside. Instead, secret data should be kept inside `.env.local`, which won't be included in the repo.
+
 ### Including Icons
 
 You can search for FontAwesome icons on [their website](https://fontawesome.com/search) and then copy the name to import it from the `@fortawesome/...` package. You can usually just start writing something like `import { faCircle...` and then let the auto-complete from the LSP decide which package to import the icon  from (there's a few of them). These are just icon definitions though, to use them in your JSX you need to use the `FontAwesomeIcon` component. E.g.,

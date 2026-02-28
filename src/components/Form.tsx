@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from "react"
 import "./Form.css"
+import type { HTTPMethod } from "../types"
 
 type FormProps = PropsWithChildren<{
 	/**
@@ -22,7 +23,7 @@ type FormProps = PropsWithChildren<{
 	/**
 	 * The HTTP method to use when forming the request.
 	 */
-	method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE"
+	method: HTTPMethod
 
 	/**
 	 * The format in which the request body should be formed. Defaults to
@@ -83,7 +84,7 @@ function Form({
 	contentType ??= "application/json"
 
 	return (
-		<form onSubmit={e => {
+		<form className="formComponent" noValidate onSubmit={e => {
 			e.preventDefault()
 
 			const formData = new FormData(e.target)
