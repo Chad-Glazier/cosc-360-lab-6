@@ -3,7 +3,7 @@ import "./Account.css"
 
 function Account() {
 	return (<>
-		<Header pageTitle="My Account" />
+		<Header currentPage="/account" />
 		<p>This page is where a user can view and manage their own account.</p>
 	</>)
 }

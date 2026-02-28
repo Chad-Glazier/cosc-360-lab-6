@@ -5,6 +5,15 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Account from "./pages/Account"
 
+export type PagePath = "/" | "/login" | "/register" | "/account"
+
+export const pageTitle: Record<PagePath, string> = {
+	"/": "Home",
+	"/login": "Log In",
+	"/register": "Register",
+	"/account": "My Account"
+}
+
 function App() {
 	return (
 		<BrowserRouter>

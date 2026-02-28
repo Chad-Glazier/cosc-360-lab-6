@@ -4,7 +4,6 @@ import server from "../util/server"
 import "./Login.css"
 import Button from "../components/Button"
 import { faArrowRightToBracket, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import validEmail from "../util/validEmail"
 import TextInput from "../components/TextInput"
@@ -47,7 +46,6 @@ function Login() {
 				}}
 			>
 				<h1>Log In</h1>
-				
 				<TextInput
 					name="email"
 					error={emailErr}
